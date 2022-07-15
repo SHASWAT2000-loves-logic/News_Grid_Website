@@ -1,0 +1,487 @@
+
+/* Using CSS variables to store specific colors that are used frequently throughout the website */
+
+:root{
+    --red_bg_color:#c72727;
+    --orange_bg_color:#f99500;
+    --light_color:#f3f3f3;
+    --dark_color:#333;
+    --entert_bg_color:#a66bbe;
+    --tech_bg_color:#009cff;
+    --white_color:#fff;
+}
+
+/* CSS reset */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+/* Giving a font and background color to all the content */
+
+body{
+    font-family: 'Lato', sans-serif;
+    background-color: #f3f3f3;
+    overflow-x: hidden;
+}
+
+/* All the headings have a specific font and margin */
+
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Staatliches', cursive;
+    margin-bottom: 8.8px;
+}
+
+/* General styling for all paragraphs */
+
+p{
+    line-height: 1.5;
+    margin:8px 0px;
+}
+
+/* Removing the bullet points from all list items */
+
+ul{
+    list-style: none;
+}
+
+/* Removing the underline from the links */
+
+a{
+    text-decoration: none;
+}
+
+
+/* Increasing space between the font awesome icons */
+
+i{
+    padding-right: 3px;
+}
+
+/* The container centers the content irrespective of the screen width */
+
+.container{
+    padding:0 2rem;
+    max-width:1100px;
+    margin:auto;
+}
+
+/* Styles the current link on which user has clicked */
+
+#navbar .current_page{
+    background-color: #c72727;
+    color:var(--white_color);
+}
+
+/* General styling of various sections of the news grid */
+
+.sports, 
+.entertainment, 
+.technology{
+    text-transform: uppercase;
+    font-size: 0.55rem;
+    padding:0.4rem 0.6rem;
+    margin-bottom:0.7rem;
+    color:var(--white_color);
+    border-radius: 15px;
+}
+.sports{
+    width:55px;
+    background-color: var(--orange_bg_color);
+}
+.entertainment{
+    width:93px;
+    background-color: var(--entert_bg_color);
+}
+.technology{
+    width:83px;
+    background-color: var(--tech_bg_color);
+    margin-top: 0.5rem;
+}
+
+/* Home page */
+
+/* Styling the horizontal navigation bar */
+
+/* The navbar sticks to the top of each of the 3 pages */
+
+#navbar{
+    background-color: var(--white_color);
+    padding:1rem;
+    position: sticky;
+    top:0;
+    z-index: 3;
+}
+
+/* Creating the grid container to position each element */
+
+.grid_navbar{
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr;
+}
+.logo{
+    width:180px;
+}
+.social_media{
+    align-self: center;
+}
+#navbar ul{
+    display: flex;
+    align-self: center;
+    justify-self: end;
+}
+.social_media i{
+    color:#777;
+}
+#navbar ul li{
+    cursor: pointer;
+}
+#navbar ul li a{
+    display: inline-block;
+    padding:0.75rem;
+    color:var(--dark_color);
+    font-weight: bold;
+}
+#navbar ul li a:hover{
+    background-color: #f3f3f3;
+    color:var(--dark_color);
+}
+
+
+/* Creating the overlay */
+
+#overlay{
+    height:50vh;
+    position: relative;
+    background-color: var(--dark_color);
+}
+#overlay:before{
+    content:'';
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:url('/img/featured.jpg') no-repeat center center/cover;
+    opacity:0.6;
+}
+
+/* Creating the grid */
+
+.grid_overlay{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height:50vh;
+    color:var(--white_color);
+}
+.grid_overlay *{
+    z-index: 2;
+}
+
+/* Styling the elements inside the grid */
+
+.grid_overlay > h1{
+    font-size: 32px;
+}
+.grid_overlay > p{
+    width:550px;
+    margin-top:8px;
+    margin-bottom: 16px;
+}
+.grid_overlay > a{
+    display: inline-block;
+    background-color:var(--red_bg_color);
+    padding:8px 24px;
+    color:var(--white_color);
+    width:130px;
+}
+.grid_overlay > a:hover{
+    opacity: 0.9;
+}
+
+
+/* Styling the gallery of articles section */
+
+#editor_picks{
+    background-color: var(--light_color);
+    padding:0 32px;
+}
+.all_articles{
+    padding:32px 0px;
+}
+.all_articles h3 a{
+    color:var(--dark_color);
+}
+
+/* We have 7 articles or containers inside the grid, with the first and last articles spanning the grid area */
+
+.home_article_grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+.home_article_grid img{
+    width:100%;
+}
+.article{
+    background-color: var(--white_color);
+    padding:16px;
+}
+.article:first-child, 
+.article:last-child{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-column-gap: 1rem;
+}
+.article:first-child{
+    grid-column: 1 / span 2;
+}
+.article:last-child{
+    grid-column: 2 / span 2;
+}
+.article:nth-child(odd) > div > div
+{
+    text-transform: uppercase;
+}
+
+/* Styling the grids inside the article grids */
+
+.inner_grid_1,
+.inner_grid_2, 
+.inner_grid_3, 
+.inner_grid_4{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.article:nth-child(even) > div
+{
+    text-transform: uppercase;
+}
+.article:nth-child(even){
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* The second and sixth article have a specific background */
+
+.article:nth-child(2){
+    background-color: var(--dark_color);
+    color:var(--white_color);
+}
+.article:nth-child(6){
+    background-color: var(--red_bg_color);
+    color:var(--white_color);
+}
+.article:nth-child(2) h3 a, 
+.article:nth-child(6) h3 a
+{
+    color:var(--white_color);
+}
+
+/* About page */
+
+/* The grid in the about page consists of 2 containers, the about content and a sidebar */
+
+.about_grid{
+    display: grid;
+    grid-template-columns: 5fr 2fr;
+    gap: 1.5rem;
+    margin:2rem 0rem;
+}
+
+/* Styling the about content */
+
+.about_grid > div:first-child{
+    background-color: var(--white_color);
+    padding:1rem;
+    grid-row:1 / span 3;
+}
+.about_grid h1{
+    font-size: 48px;
+}
+
+/* Styling the sidebar */
+
+.about_grid > div:last-child{
+    background-color: var(--red_bg_color);
+    color:var(--white_color);
+    padding:16px;
+    display: grid;
+    align-content: flex-start;
+}
+.about_grid a{
+    display: inline-block;
+    color:var(--white_color);
+    background-color: var(--dark_color);
+    padding:8px 24px;
+    text-align: center;
+}
+.about_grid a:hover{
+    opacity: 0.9;
+}
+
+
+/* Article page */
+
+/* The grid in the article page has 2 containers, the actual article and a sidebar that has two inner grid containers */
+
+.article_grid{
+    display: grid;
+    grid-template-columns: 5fr 2fr;
+    gap: 1.5rem;
+    margin:2rem 0rem;
+}
+.article_grid img{
+    width:100%;
+}
+
+/* Styling the article */
+
+.article_grid > div:first-child{
+    background-color: var(--white_color);
+    padding:1rem;
+    grid-row:1 / span 3;
+}
+.article_grid h1{
+    font-size: 48px;
+}
+.inner_grid_container{
+    background-color: #eee;
+    padding:8px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+}
+.inner_grid_container small{
+    display: flex;
+}
+.inner_grid_container > div{
+    justify-self: flex-end;
+}
+
+/* Styling the sidebar, which is a grid consisting of two containers */
+
+.sidebar{
+    display: grid;
+    row-gap: 1.5rem;
+}
+.sidebar > div:first-child{
+    background-color: var(--white_color);
+    padding:1rem;
+}
+.sidebar > div:first-child li{
+    padding:8px 0px;
+    border-bottom: 1px dotted #555;
+    width:90%;
+    margin-bottom: 5px;
+}
+.sidebar > div:first-child a{
+    color:var(--dark_color);
+}
+.sidebar > div:first-child a:hover{
+    color:var(--red_bg_color);
+}
+.sidebar i{
+    padding-right: 5px;
+    color:black;
+    font-weight: bold;
+}
+.sidebar > div:last-child{
+    background-color: var(--orange_bg_color);
+    color:var(--white_color);
+}
+.sidebar > div:last-child{
+    padding:16px;
+    background-color: var(--orange_bg_color);
+}
+.sidebar > div:last-child a{
+    display: inline-block;
+    color:var(--white_color);
+    background-color: var(--dark_color);
+    padding:8px 24px;
+    text-align: center;
+    width:100%;
+}
+.sidebar > div:last-child a:hover{
+    opacity: 0.9;
+}
+
+
+/* Styling the footer section which is same in all the 3 pages */
+
+/* The footer grid has 5 containers that are positioned horizontally */
+
+#footer{
+    background-color: var(--dark_color);
+    padding:32px 0px;
+    color:var(--white_color);
+}
+#footer img{
+    width:180px;
+}
+.grid_footer{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 1.5rem;
+}
+
+/* Styling the input tag, where the user enters their email */
+
+.grid_footer input{
+    padding:0.5rem;
+    height:35px;
+    width:90%;
+    border: 2px solid black;
+    margin-bottom: 0.5rem;
+}
+
+/* Styling the subscribe button */
+
+.grid_footer button{
+    border:none;
+    width:90%;
+    height:35px;
+    padding:8px 24px;
+    background-color: var(--red_bg_color);
+    color:var(--white_color);
+}
+.grid_footer button:hover{
+    opacity:0.9;
+}
+.grid_footer li{
+    padding:0.5rem 0;
+    margin-bottom: 1px;
+    width:90%;
+    border-bottom: #555 dotted 1px;
+}
+.grid_footer > div:nth-child(3) > ul li a{
+    color:var(--white_color);
+}
+.grid_footer > div:nth-child(3) > ul li a:hover{
+    color:var(--red_bg_color);
+}
+.grid_footer > div:nth-child(4) > a{
+    display: inline-block;
+    background-color:var(--orange_bg_color);
+    padding:8px 24px;
+    color:var(--white_color);
+}
+.grid_footer > div:nth-child(4) > a:hover{
+    opacity: 0.9;
+}
+
+/* Styling the copyright content */
+
+.grid_footer > div:last-child{
+    background-color: #444;
+    text-align: center;
+    font-size: 14px;
+    padding:16px 0px;
+    grid-column: 1 /span 4;
+    margin:8px 0px;
+}

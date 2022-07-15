@@ -1,0 +1,97 @@
+
+/* Changes for all pages */
+
+/* Styling for screen width between 600px and 768px aka tablets */
+
+.entertainment{
+    margin-top: 0.6rem;
+}
+
+/* Removing the social media icons */
+
+.social_media{
+    display: none;
+}
+
+/* The news logo and the links are stacked on top of each other */
+
+.grid_navbar{
+    grid-template-columns: 1fr;
+    justify-items: center;
+}
+#navbar ul{
+    margin-top: 0.7rem;
+    justify-self: center;
+}
+#navbar ul li a{
+    padding:0.5rem;
+}
+
+/* For smaller screens we want to have 2 columns instead of 3 */
+
+.home_article_grid{
+    grid-template-columns: repeat(2,1fr);
+}
+
+/* Changes in the article page */
+
+/* Removing spanning grid articles */
+
+.article:first-child, 
+.article:last-child{
+    grid-template-columns: 1fr;
+    grid-column: 1;
+}
+.inner_grid_container{
+    grid-template-columns: 2fr 1fr;
+}
+.inner_grid_container small{
+    display: grid;
+    grid-template-columns: 0.1fr 2fr;
+}
+
+/* Styling for mobile devices */
+
+@media(max-width:600px){
+
+    /* Changes in the home page */
+
+    .grid_overlay{
+        width:300px;
+    }
+    .grid_overlay > p{
+        width:250px;
+    }
+    .home_article_grid{
+        grid-template-columns: 1fr;
+    }
+    .grid_footer{
+        grid-template-columns: 1fr;
+    }
+    .grid_footer > div:last-child{
+        grid-column: 1;
+    }
+    .grid_footer div{
+        border-bottom: #444 dotted 1px;
+        padding-bottom: 1rem;
+    }
+    .grid_footer > div:nth-child(3), 
+    .grid_footer > div:nth-child(5)
+    {
+        border-bottom: none;
+    }
+
+    /* Changes in the about page */
+
+    .about_grid{
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    /* Changes in the article page */
+
+    .article_grid{
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+}
